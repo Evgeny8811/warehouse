@@ -13,6 +13,10 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
+    App\RPC\V1\:
+        resource: '../src/RPC/V1/{*Method.php}'
+        tags:
+            - { name: ov.rpc.method, namespace: App\RPC\V1\, version: 1 }
     App\:
         resource: '../src/'
         exclude:
